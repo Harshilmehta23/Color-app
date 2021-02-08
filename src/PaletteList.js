@@ -22,14 +22,13 @@ const styles = {
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',
-    color: 'white',
   },
   palettes: {
     boxSizing: 'border-box',
     width: '100%',
     display: 'grid',
-    gridTemplateColumns: 'repeat(3,30%)',
-    gridGap: '30%',
+    gridTemplateColumns: 'repeat(3, 30%)',
+    gridGap: '5%',
   },
 };
 
