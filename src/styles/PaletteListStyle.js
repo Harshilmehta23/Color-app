@@ -5,6 +5,7 @@ const styles = {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
+    overFlow: 'scroll',
   },
   container: {
     width: '50%',
@@ -17,13 +18,18 @@ const styles = {
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    color: 'white',
+    '& a': {
+      color: 'white',
+    },
   },
   palettes: {
     boxSizing: 'border-box',
     width: '100%',
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 30%)',
-    gridGap: '5%',
+    gridGap: '2.5rem',
   },
 };
 

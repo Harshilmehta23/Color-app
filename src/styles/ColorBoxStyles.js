@@ -53,7 +53,6 @@ const styles = {
     lineHeight: '30px',
     textTransform: 'uppercase',
     border: 'none',
-    marginBottom: '-3.5px',
     textDecoration: 'none',
     opacity: '0',
   },
