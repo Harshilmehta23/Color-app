@@ -1,9 +1,10 @@
 const styles = {
   Palette: {
-    height: '100vh',
+    height: '99vh',
+    width: '98.9vw',
     display: 'flex',
     flexDirection: 'column',
-    overFlow: 'scroll',
+    overFlow: 'none',
   },
   colors: {
     height: '90%',
