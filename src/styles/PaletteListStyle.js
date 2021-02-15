@@ -2,6 +2,15 @@ import sizes from './sizes';
 import bg from './bg.svg';
 
 const styles = {
+  '@global': {
+    '.item-exit': {
+      opacity: '1',
+    },
+    '.item-exit-active': {
+      opacity: '0',
+      transition: 'opacity 0.5s ease-out',
+    },
+  },
   root: {
     height: '100vh',
     display: 'flex',
