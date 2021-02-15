@@ -1,10 +1,8 @@
 const styles = {
   Palette: {
-    height: '99vh',
-    width: '98.9vw',
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    overFlow: 'none',
   },
   colors: {
     height: '90%',
@@ -17,7 +15,7 @@ const styles = {
     position: 'relative',
     cursor: 'pointer',
     marginBottom: '-3.5px',
-    opacity: '1',
+    opacity: 1,
     backgroundColor: 'black',
     '& a': {
       color: 'white',
@@ -36,7 +34,6 @@ const styles = {
       lineHeight: '30px',
       textTransform: 'uppercase',
       border: 'none',
-      marginBottom: '-3.5px',
       textDecoration: 'none',
     },
   },

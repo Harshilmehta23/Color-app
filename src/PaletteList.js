@@ -33,5 +33,4 @@ class PaletteList extends Component {
     );
   }
 }
-
 export default withStyles(styles)(PaletteList);
