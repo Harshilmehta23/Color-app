@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
@@ -9,6 +8,7 @@ import NewPaletteForm from './NewPaletteForm';
 import { generatePalette } from './colorHelpers';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './App.css';
+import Page from './Page';
 
 class App extends Component {
   constructor(props) {
@@ -19,13 +19,11 @@ class App extends Component {
     this.findPalette = this.findPalette.bind(this);
     this.deletePalette = this.deletePalette.bind(this);
   }
-
   findPalette(id) {
     return this.state.palettes.find(function (palette) {
       return palette.id === id;
     });
   }
-
   deletePalette(id) {
     this.setState(
       (st) => ({
@@ -34,80 +32,77 @@ class App extends Component {
       this.syncLocalStorage
     );
   }
-
   savePalette(newPalette) {
     this.setState(
       { palettes: [...this.state.palettes, newPalette] },
       this.syncLocalStorage
     );
   }
-
   syncLocalStorage() {
-    // save palettes to local storage
+    //save palettes to local storage
     window.localStorage.setItem(
       'palettes',
       JSON.stringify(this.state.palettes)
     );
   }
-
   render() {
     return (
       <Route
-        reder={({ location }) => (
+        render={({ location }) => (
           <TransitionGroup>
-            <CSSTransition key={location.key} classNames='item' timeout={500}>
+            <CSSTransition key={location.key} classNames='page' timeout={500}>
               <Switch location={location}>
                 <Route
                   exact
                   path='/palette/new'
                   render={(routeProps) => (
-                    <div className='page'>
+                    <Page>
                       <NewPaletteForm
                         savePalette={this.savePalette}
                         palettes={this.state.palettes}
                         {...routeProps}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path='/palette/:paletteId/:colorId'
                   render={(routeProps) => (
-                    <div className='page'>
+                    <Page>
                       <SingleColorPalette
                         colorId={routeProps.match.params.colorId}
                         palette={generatePalette(
                           this.findPalette(routeProps.match.params.paletteId)
                         )}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path='/'
                   render={(routeProps) => (
-                    <div className='page'>
+                    <Page>
                       <PaletteList
                         palettes={this.state.palettes}
                         deletePalette={this.deletePalette}
                         {...routeProps}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path='/palette/:id'
                   render={(routeProps) => (
-                    <div className='page'>
+                    <Page>
                       <Palette
                         palette={generatePalette(
                           this.findPalette(routeProps.match.params.id)
                         )}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
               </Switch>
@@ -115,9 +110,6 @@ class App extends Component {
           </TransitionGroup>
         )}
       />
-      // <div>
-      //   <Palette palette={generatePalette(seedColors[4])} />
-      // </div>
     );
   }
 }
