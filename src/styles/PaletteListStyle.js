@@ -1,12 +1,19 @@
 import sizes from './sizes';
+import bg from './bg.svg';
+
 const styles = {
   root: {
-    backgroundColor: 'blue',
     height: '100vh',
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    overFlow: 'scroll',
+    /* background by SVGBackgrounds.com */
+    backgroundColor: '#070333',
+    backgroundImage: `url(${bg})`,
+    overflow: 'scroll',
+  },
+  heading: {
+    fontSize: '2rem',
   },
   container: {
     width: '50%',
@@ -42,6 +49,7 @@ const styles = {
     },
     [sizes.down('xs')]: {
       gridTemplateColumns: 'repeat(1, 100%)',
+      gridGap: '1.4rem',
     },
   },
 };
