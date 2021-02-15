@@ -7,7 +7,6 @@ import seedColors from './seedColors';
 import NewPaletteForm from './NewPaletteForm';
 import { generatePalette } from './colorHelpers';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import './App.css';
 import Page from './Page';
 
 class App extends Component {
